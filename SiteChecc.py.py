@@ -17,8 +17,6 @@ def main():
 
     updater = Updater(TOKEN, use_context = True)
 
-
-
     def start(update: Update, context: CallbackContext):
         update.message.reply_text("Hello There!,\nWelcome\n I am your Sitechecker \n What site do you want to check?\n Type help to see the list of available sites ")
 
@@ -63,6 +61,3 @@ def main():
 if __name__ == '__main__':
     main()
 
-#
-
-#updater.start_polling()
