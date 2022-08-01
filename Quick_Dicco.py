@@ -1,8 +1,4 @@
-import sys
-if sys.version_info[:2] >= (3, 11):
-    from collections.abc import MutableMapping
-else:
-    from collections import MutableMapping
+from collections.abc import MutableMapping
 import asyncio
 import telepot
 import telepot.aio
