@@ -4,6 +4,7 @@ import telepot.aio
 from telepot.aio.loop import MessageLoop
 from pprint import pprint
 from bs4 import BeautifulSoup
+from colections.abc import MutableMapping
 import requests
 
 #modification
