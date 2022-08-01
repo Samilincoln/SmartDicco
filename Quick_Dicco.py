@@ -1,5 +1,5 @@
 import sys
-if sys.version_info[:2] >= (3, 8):
+if sys.version_info[:2] >= (3, 11):
     from collections.abc import MutableMapping
 else:
     from collections import MutableMapping
