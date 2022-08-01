@@ -1,10 +1,14 @@
+import sys
+if sys.version_info[:2] >= (3, 8):
+    from collections.abc import MutableMapping
+else:
+    from collections import MutableMapping
 import asyncio
 import telepot
 import telepot.aio
 from telepot.aio.loop import MessageLoop
 from pprint import pprint
 from bs4 import BeautifulSoup
-from collections.abc import MutableMapping
 import requests
 
 #modification
