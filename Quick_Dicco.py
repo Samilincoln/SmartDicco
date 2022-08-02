@@ -75,5 +75,5 @@ async def getMeaning(text):
     
     updater.idle()
     
-if __name__ == '__main__':
+if __handle__ == '__main__':
     main()
