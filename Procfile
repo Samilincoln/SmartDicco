@@ -1,1 +1,1 @@
-web: python3 Quick_Dicco.py
+web: python3.9 Quick_Dicco.py
