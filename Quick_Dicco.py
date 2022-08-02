@@ -13,52 +13,56 @@ PORT = int(os.environ.get('PORT', 80))
 TOKEN = '5492548133:AAGfDi_Q-Lh6XO5pVFOsJbZ5Zbk5VKcrjQE'
 
 #modification
-async def handle(msg):
-    global chat_id
+def main():
+
+    updater = Updater(TOKEN, use_context= True)
+
+    async def handle(msg):
+        global chat_id
     #useful variables
-    content_type, chat_type ,chat_id = telepot.glance(msg)
+        content_type, chat_type ,chat_id = telepot.glance(msg)
     #Log variables
-    print(content_type, chat_type, chat_id)
+        print(content_type, chat_type, chat_id)
     #print(msg)
     #username = text['chat']['first_name']
     #checking taht the content type is text and not the starting
-    if content_type == 'text':
+        if content_type == 'text':
 
-        text = msg['text']
+            text = msg['text']
     #stripping and lower the input
-        text= text.strip()
-        await getMeaning(text.lower())
+            text= text.strip()
+            await getMeaning(text.lower())
 
-async def getMeaning(text):
+    async def getMeaning(text):
 #creating the url
-    url = 'https://www.dictionary.com/browse/' + text
+        url = 'https://www.dictionary.com/browse/' + text
 #defining my headers
-    headers = {'User-Agent': 'Generic user agent'}
+        headers = {'User-Agent': 'Generic user agent'}
 #get page request
-    r = requests.get(url, headers=headers )
+        r = requests.get(url, headers=headers )
 #to parse the html ...this is the code
-    soup = BeautifulSoup(r.content, 'html.parser')
+        soup = BeautifulSoup(r.content, 'html.parser')
 
-    print(soup.prettify())
+        print(soup.prettify())
 
     
 
-    try:
-
         try:
+
+            try:
         #finding the required content.....
-            s = soup.find('div', class_='css-1avshm7 e16867sm0')
-            lines = s.find('span', class_='one-click-content css-nnyc96 e1q3nk1v1')
+                s = soup.find('div', class_='css-1avshm7 e16867sm0')
+                lines = s.find('span', class_='one-click-content css-nnyc96 e1q3nk1v1')
 
-            for  line in lines:
-                await bot.sendMessage(chat_id , line.text)
-                print(line) 
+                for  line in lines:
+                    await bot.sendMessage(chat_id , line.text)
+                    print(line) 
 
-        except:
-            await bot.sendMessage(chat_id, '....\n',text ,'not found\n please check spelling.')
+            except:
+                await bot.sendMessage(chat_id, '....\n',text ,'not found\n please check spelling.')
    
-    except:
-        await bot.sendMessage(chat_id, 'Something went wrong...\n Word not found or spelling not corect.')
+        except:
+            await bot.sendMessage(chat_id, 'Something went wrong...\n Word not found or spelling not corect.')
     
     #send our JSON msg as variable ass replly message
     #await bot.sendMessage(chat_id,msg)
@@ -75,5 +79,5 @@ async def getMeaning(text):
     
     updater.idle()
     
-if __handle__ == '__main__':
+if __name__ == '__main__':
     main()
