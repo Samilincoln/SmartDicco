@@ -70,7 +70,7 @@ async def getMeaning(text):
         listen='0.0.0.0',
         port=int(PORT),
         url_path=TOKEN,
-        webhook_url=f"/{TOKEN}"
+        webhook_url=f"https://smarrt-dicco.herokuapp.com//{TOKEN}"
     )
     
     updater.idle()
