@@ -1,4 +1,4 @@
-from collections.abc import MutableMapping
+from collections.abc import Mapping,MutableMapping
 import asyncio
 import telepot
 import telepot.aio
@@ -9,7 +9,7 @@ import requests
 from telegram.ext import Updater
 import os
 
-PORT = int(os.envirn.get('PORT', 80))
+PORT = int(os.environ.get('PORT', 80))
 TOKEN = '5492548133:AAGfDi_Q-Lh6XO5pVFOsJbZ5Zbk5VKcrjQE'
 
 #modification
