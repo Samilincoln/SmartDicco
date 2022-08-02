@@ -1,4 +1,4 @@
-from collections.abc import Mapping,MutableMapping
+from collections import Mapping,MutableMapping
 import asyncio
 import telepot
 import telepot.aio
