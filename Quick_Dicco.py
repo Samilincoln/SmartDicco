@@ -6,6 +6,11 @@ from telepot.aio.loop import MessageLoop
 from pprint import pprint
 from bs4 import BeautifulSoup
 import requests
+from telegram.ext import Updater
+import os
+
+PORT = int(os.envirn.get('PORT', 80))
+TOKEN = '5492548133:AAGfDi_Q-Lh6XO5pVFOsJbZ5Zbk5VKcrjQE'
 
 #modification
 async def handle(msg):
@@ -60,12 +65,15 @@ async def getMeaning(text):
 
 
 #startup
-TOKEN = '5492548133:AAGfDi_Q-Lh6XO5pVFOsJbZ5Zbk5VKcrjQE'
-bot = telepot.aio.Bot(TOKEN)
-loop = asyncio.get_event_loop()
-loop.create_task(MessageLoop(bot, handle).run_forever())
-
-print('Listening .....')
-
-#keep the prog running
-loop.run_forever()
+    
+    updater.start_webhook(
+        listen='0.0.0.0',
+        port=int(PORT),
+        url_path=TOKEN,
+        webhook_url=f"/{TOKEN}"
+    )
+    
+    updater.idle()
+    
+if __name__ == '__main__':
+    main()
